@@ -1,0 +1,26 @@
+<?php
+
+namespace Application\Entity;
+
+use Doctrine\ORM\Mapping as ORM; 
+use DateTime;
+
+/** @ORM\Entity */
+class Beneficiario
+{
+	/**
+    * @ORM\Column(type="integer")
+    * @ORM\GeneratedValue
+    * @ORM\Id
+    */
+    protected $idBeneficiario; //TENGO DOS CLAVES PRIMARIAS, idPaciente y dni   
+
+    /** @ORM\Column(type="bigint", nullable=false, unique=true) */
+	protected $dni;
+
+	/** @ORM\Column(type="string", nullable=true)*/
+	protected $nombre;
+
+	/** @ORM\Column(type="string", nullable=true)*/
+	protected $apellido; 
+}

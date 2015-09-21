@@ -1,0 +1,24 @@
+<?php echo $this->flashMessenger()->render('success', array('alert', 'alert-dismissable', 'alert-success')); ?>
+<ul>
+    <?php foreach ($paginador as $empleado): ?>
+    <li>
+        <a href="<?php echo $this->url('editar_empleado', array(
+                'id_empleado'=>$empleado->getIdEmpleado(),
+                'dni' =>$empleado->getDni(),
+                'nombre'=>$empleado->getNombre()
+                ))  ?>">
+                        <?php echo $empleado->getIdEmpleado() ?>
+                        <?php echo $empleado->getDni() ?>
+        </a>
+        <a href="<?php echo $this->url('eliminar_empleado', array(
+                'id_empleado'=>$empleado->getIdEmpleado()))  ?>">
+            Eliminar
+        </a>
+    </li>
+    <?php endforeach; ?>
+</ul>
+<div>
+    <?php echo $this->paginationControl($paginador, 'Sliding', 'application/paginador', array(
+        'route' => 'lista_empleado'
+    ) ); ?>
+</div>
